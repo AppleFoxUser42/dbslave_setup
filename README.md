@@ -1,5 +1,9 @@
 [Dockerfile](https://github.com/AppleFoxUser42/dbslave_setup)  
 This Container acts as setup script to turn a MySQL/Percona/MariaDB container into a database replication slave.  
+Tags:  
+alpine -- uses alpine linux image.
+stable -- uses mysql:5.7
+latest -- uses mysql:latest
   
 ENVIRONMENT VARIABLES:
 `DB_ROOT_USER`  -- defaults to root  
