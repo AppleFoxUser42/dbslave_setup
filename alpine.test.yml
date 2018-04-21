@@ -4,9 +4,6 @@ testdb:
     MYSQL_ROOT_PASSWORD: mysqladmin
 sut:
   build: .
-    dockerfile: Dockerfile-alpine
-    cache_from:
-      - alpine:latest
   environment:
       DB_HOSTNAME: testdb
       DB_PORT: 3306
