@@ -1,9 +1,11 @@
 [Dockerfile](https://github.com/AppleFoxUser42/dbslave_setup)  
+NOTE: DOES NOT WORK WITH `mysql:latest` as that uses MySQL 8 which has problems with passwort authentication on commandline.  
+See the setup-slave.sh in the repo.  
 This Container acts as setup script to turn a MySQL/Percona/MariaDB container into a database replication slave.  
 Tags:  
-alpine -- uses alpine linux image.
-stable -- uses mysql:5.7
-latest -- uses mysql:latest
+alpine -- uses alpine linux image.  
+stable -- uses mysql:5.7  
+latest -- uses mysql:latest  
   
 ENVIRONMENT VARIABLES:
 `DB_ROOT_USER`  -- defaults to root  
@@ -13,6 +15,7 @@ ENVIRONMENT VARIABLES:
 `DB_MAXSCALE_PASS` -- optional when used with MariaDB Maxscale  
 `DB_HOSTNAME`  
 `DB_MASTER_HOSTNAME`  
+`DB_SLAVE_DB_FILTER`-- optional allows to replicate given database/s only.  
 `DB_SLAVE_USER`  
 `DB_SLAVE_PASS`  
 `LOGNUM` -- optional. If set uses BINLOG instead of GTID  
