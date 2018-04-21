@@ -1,0 +1,19 @@
+testdb:
+  image: mysql:5.7
+  environment:
+    MYSQL_ROOT_PASSWORD: mysqladmin
+sut:
+  build: .
+    dockerfile: Dockerfile-alpine
+    cache_from:
+      - alpine:latest
+  environment:
+      DB_HOSTNAME: dbslave
+      DB_PORT: 3306
+      DB_ROOT_PASS: mysqladmin
+      DB_SLAVE_USER: repl
+      DB_SLAVE_PASS: slavepass
+      #Only replicate the following database
+      #DB_SLAVE_DB_FILTER: ${WP_UID}wp
+      DB_MASTER_HOSTNAME: dbmaster
+
