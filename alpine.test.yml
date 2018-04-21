@@ -3,12 +3,13 @@ testdb:
   environment:
     MYSQL_ROOT_PASSWORD: mysqladmin
 sut:
-  build: .
+  depends_on: testdb
+  build: 
     dockerfile: Dockerfile-alpine
     cache_from:
       - alpine:latest
   environment:
-      DB_HOSTNAME: dbslave
+      DB_HOSTNAME: testdb
       DB_PORT: 3306
       DB_ROOT_PASS: mysqladmin
       DB_SLAVE_USER: repl
